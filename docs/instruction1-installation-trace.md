@@ -14,6 +14,7 @@ Instruction 1 is complete.
 - The required OpenAI smoke run against `gpt-5.2` succeeded.
 - A small extra local-only verification run was added to generate a real hitlog artifact, because the required clean runs did not create one.
 - On April 23, 2026, the run artifacts were moved into repo-relative storage and the runs were repeated with outputs written directly under [`runs/`](../runs).
+- The repo-local `runs/` directory was then reorganized into one subdirectory per Garak run so artifacts are grouped by run instead of kept in one flat folder.
 
 ## Artifact Location Update
 
@@ -28,19 +29,20 @@ What changed:
 - Existing artifacts were copied from `/root/garak-lab/runs` into `Garak/runs`
 - The Garak runs were repeated with `--report_prefix` values pointing directly at `/root/workspace/Garak/runs/...`
 - Console output for each rerun was also saved in `Garak/runs` as `*.console.log`
+- The repo-local artifacts were then grouped into one folder per run under `Garak/runs`
 
 Current canonical run files:
 
-- [`runs/00-selftest.report.jsonl`](../runs/00-selftest.report.jsonl)
-- [`runs/00-selftest.report.html`](../runs/00-selftest.report.html)
-- [`runs/00-selftest.console.log`](../runs/00-selftest.console.log)
-- [`runs/00a-hitlog-check.report.jsonl`](../runs/00a-hitlog-check.report.jsonl)
-- [`runs/00a-hitlog-check.report.html`](../runs/00a-hitlog-check.report.html)
-- [`runs/00a-hitlog-check.hitlog.jsonl`](../runs/00a-hitlog-check.hitlog.jsonl)
-- [`runs/00a-hitlog-check.console.log`](../runs/00a-hitlog-check.console.log)
-- [`runs/01-openai-smoke.report.jsonl`](../runs/01-openai-smoke.report.jsonl)
-- [`runs/01-openai-smoke.report.html`](../runs/01-openai-smoke.report.html)
-- [`runs/01-openai-smoke.console.log`](../runs/01-openai-smoke.console.log)
+- [`runs/00-selftest/00-selftest.report.jsonl`](../runs/00-selftest/00-selftest.report.jsonl)
+- [`runs/00-selftest/00-selftest.report.html`](../runs/00-selftest/00-selftest.report.html)
+- [`runs/00-selftest/00-selftest.console.log`](../runs/00-selftest/00-selftest.console.log)
+- [`runs/00a-hitlog-check/00a-hitlog-check.report.jsonl`](../runs/00a-hitlog-check/00a-hitlog-check.report.jsonl)
+- [`runs/00a-hitlog-check/00a-hitlog-check.report.html`](../runs/00a-hitlog-check/00a-hitlog-check.report.html)
+- [`runs/00a-hitlog-check/00a-hitlog-check.hitlog.jsonl`](../runs/00a-hitlog-check/00a-hitlog-check.hitlog.jsonl)
+- [`runs/00a-hitlog-check/00a-hitlog-check.console.log`](../runs/00a-hitlog-check/00a-hitlog-check.console.log)
+- [`runs/01-openai-smoke/01-openai-smoke.report.jsonl`](../runs/01-openai-smoke/01-openai-smoke.report.jsonl)
+- [`runs/01-openai-smoke/01-openai-smoke.report.html`](../runs/01-openai-smoke/01-openai-smoke.report.html)
+- [`runs/01-openai-smoke/01-openai-smoke.console.log`](../runs/01-openai-smoke/01-openai-smoke.console.log)
 
 ## What Was Done
 
@@ -148,7 +150,7 @@ Command intent:
 
 - `test.Blank` generator
 - `test.Test` probe
-- report prefix `/root/workspace/Garak/runs/00-selftest`
+- report prefix `/root/workspace/Garak/runs/00-selftest/00-selftest`
 
 Result:
 
@@ -158,13 +160,13 @@ Result:
 
 Artifacts:
 
-- `/root/workspace/Garak/runs/00-selftest.report.jsonl`
-- `/root/workspace/Garak/runs/00-selftest.report.html`
-- `/root/workspace/Garak/runs/00-selftest.console.log`
+- `/root/workspace/Garak/runs/00-selftest/00-selftest.report.jsonl`
+- `/root/workspace/Garak/runs/00-selftest/00-selftest.report.html`
+- `/root/workspace/Garak/runs/00-selftest/00-selftest.console.log`
 
 Execution log:
 
-- `/root/workspace/Garak/runs/00-selftest.console.log`
+- `/root/workspace/Garak/runs/00-selftest/00-selftest.console.log`
 
 ### Required run 2: OpenAI smoke run
 
@@ -174,7 +176,7 @@ Command intent:
 - target name `gpt-5.2`
 - probe `ansiescape.AnsiEscaped`
 - `--generations 1`
-- report prefix `/root/workspace/Garak/runs/01-openai-smoke`
+- report prefix `/root/workspace/Garak/runs/01-openai-smoke/01-openai-smoke`
 
 Result:
 
@@ -187,13 +189,13 @@ Result:
 
 Artifacts:
 
-- `/root/workspace/Garak/runs/01-openai-smoke.report.jsonl`
-- `/root/workspace/Garak/runs/01-openai-smoke.report.html`
-- `/root/workspace/Garak/runs/01-openai-smoke.console.log`
+- `/root/workspace/Garak/runs/01-openai-smoke/01-openai-smoke.report.jsonl`
+- `/root/workspace/Garak/runs/01-openai-smoke/01-openai-smoke.report.html`
+- `/root/workspace/Garak/runs/01-openai-smoke/01-openai-smoke.console.log`
 
 Execution log:
 
-- `/root/workspace/Garak/runs/01-openai-smoke.console.log`
+- `/root/workspace/Garak/runs/01-openai-smoke/01-openai-smoke.console.log`
 
 ### Extra verification run: explicit hitlog creation
 
@@ -208,7 +210,7 @@ Run setup:
 - generator `test.Blank`
 - probe `test.Test`
 - detector `always.Fail`
-- report prefix `/root/workspace/Garak/runs/00a-hitlog-check`
+- report prefix `/root/workspace/Garak/runs/00a-hitlog-check/00a-hitlog-check`
 
 Result:
 
@@ -217,29 +219,35 @@ Result:
 
 Artifacts:
 
-- `/root/workspace/Garak/runs/00a-hitlog-check.report.jsonl`
-- `/root/workspace/Garak/runs/00a-hitlog-check.report.html`
-- `/root/workspace/Garak/runs/00a-hitlog-check.hitlog.jsonl`
-- `/root/workspace/Garak/runs/00a-hitlog-check.console.log`
+- `/root/workspace/Garak/runs/00a-hitlog-check/00a-hitlog-check.report.jsonl`
+- `/root/workspace/Garak/runs/00a-hitlog-check/00a-hitlog-check.report.html`
+- `/root/workspace/Garak/runs/00a-hitlog-check/00a-hitlog-check.hitlog.jsonl`
+- `/root/workspace/Garak/runs/00a-hitlog-check/00a-hitlog-check.console.log`
 
 Execution log:
 
-- `/root/workspace/Garak/runs/00a-hitlog-check.console.log`
+- `/root/workspace/Garak/runs/00a-hitlog-check/00a-hitlog-check.console.log`
 
 ## Final Artifact Inventory
 
-Files now present in `/root/workspace/Garak/runs`:
+Run directories now present in `/root/workspace/Garak/runs`:
 
-- `00-selftest.report.jsonl`
-- `00-selftest.report.html`
-- `00-selftest.console.log`
-- `00a-hitlog-check.report.jsonl`
-- `00a-hitlog-check.report.html`
-- `00a-hitlog-check.hitlog.jsonl`
-- `00a-hitlog-check.console.log`
-- `01-openai-smoke.report.jsonl`
-- `01-openai-smoke.report.html`
-- `01-openai-smoke.console.log`
+- `00-selftest/`
+- `00a-hitlog-check/`
+- `01-openai-smoke/`
+
+Files inside those run directories:
+
+- `00-selftest/00-selftest.report.jsonl`
+- `00-selftest/00-selftest.report.html`
+- `00-selftest/00-selftest.console.log`
+- `00a-hitlog-check/00a-hitlog-check.report.jsonl`
+- `00a-hitlog-check/00a-hitlog-check.report.html`
+- `00a-hitlog-check/00a-hitlog-check.hitlog.jsonl`
+- `00a-hitlog-check/00a-hitlog-check.console.log`
+- `01-openai-smoke/01-openai-smoke.report.jsonl`
+- `01-openai-smoke/01-openai-smoke.report.html`
+- `01-openai-smoke/01-openai-smoke.console.log`
 
 ## Important Observation
 

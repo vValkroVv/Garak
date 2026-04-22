@@ -14,3 +14,6 @@ This repository is an NVIDIA Garak testing project.
 - Favor clear naming and short documentation for anything user-facing.
 - Write Garak run artifacts into the repo-relative `runs/` directory under `Garak/runs`.
 - When Garak is rerun, keep the canonical report files and console logs inside `Garak/runs` rather than external lab paths.
+- Do not place every Garak artifact directly in `Garak/runs`.
+- Create one subdirectory per Garak run, for example `Garak/runs/00-selftest/` or `Garak/runs/01-openai-smoke/`.
+- Keep each run's `report.jsonl`, `report.html`, optional `hitlog.jsonl`, and `console.log` together inside that run-specific subdirectory.

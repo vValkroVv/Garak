@@ -15,7 +15,9 @@ The Garak lab environment created for this project lives outside the repo:
 
 The canonical Garak run outputs for this repository now live inside the repo:
 
-- `/root/workspace/Garak/runs` for report JSONL, HTML summaries, hitlogs, and console logs
+- `/root/workspace/Garak/runs` for run-specific subdirectories
+
+Each Garak run should have its own subfolder inside `runs/`, with that run's report JSONL, HTML summary, optional hitlog, and console log stored together.
 
 ## Documentation
 
@@ -32,4 +34,8 @@ The installation stage wrote the following inventory files under `/root/garak-la
 
 ## Run Artifacts
 
-The current Garak execution artifacts are stored in repo-relative form under `runs/`.
+The current Garak execution artifacts are stored in repo-relative form under `runs/`, split by run:
+
+- `runs/00-selftest/`
+- `runs/00a-hitlog-check/`
+- `runs/01-openai-smoke/`

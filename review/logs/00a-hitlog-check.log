@@ -1,0 +1,11 @@
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T00:00:19.140352
+✋ DEPRECATION: --model_type on CLI is deprecated since version 0.13.1.pre1
+📜 logging to /root/.local/share/garak/garak.log
+🦜 loading [1m[95mgenerator[0m: Test: Blank
+📜 reporting to /root/garak-lab/runs/00a-hitlog-check.report.jsonl
+🕵️  queue of [1m[93mprobes:[0m test.Test
+🔎 queue of [0m[94mdetectors:[0m always.Fail
+Preparing prompts:   0%|[38;2;0;243;180m          [0m| 0/8 [00:00<?, ?it/s]                                                          0%|          | 0/8 [00:00<?, ?it/s]probes.test.Test:   0%|          | 0/8 [00:00<?, ?it/s]                                                         0%|          | 0/8 [00:00<?, ?it/s]detectors.always.Fail:   0%|          | 0/8 [00:00<?, ?it/s]                                                            test.Test                                                                                always.Fail: [1m[91mFAIL[0m  ok on    0/   8   ([91mattack success rate:[0m 100.00%)
+📜 report closed :) /root/garak-lab/runs/00a-hitlog-check.report.jsonl
+📜 report html summary being written to /root/garak-lab/runs/00a-hitlog-check.report.html
+✔️  garak run complete in 0.50s

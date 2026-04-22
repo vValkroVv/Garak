@@ -1,0 +1,137 @@
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:16:28.942539
+[1m[94mdetectors: [0malways 🌟
+[1m[94mdetectors: [0malways.Fail
+[1m[94mdetectors: [0malways.Pass
+[1m[94mdetectors: [0malways.Passthru
+[1m[94mdetectors: [0malways.Random
+[1m[94mdetectors: [0mansiescape 🌟
+[1m[94mdetectors: [0mansiescape.Escaped
+[1m[94mdetectors: [0mansiescape.Raw
+[1m[94mdetectors: [0many 🌟
+[1m[94mdetectors: [0many.AnyNonspaceOutput
+[1m[94mdetectors: [0many.AnyOutput
+[1m[94mdetectors: [0mapikey 🌟
+[1m[94mdetectors: [0mapikey.ApiKey
+[1m[94mdetectors: [0mcontinuation 🌟
+[1m[94mdetectors: [0mcontinuation.Continuation
+[1m[94mdetectors: [0mdan 🌟
+[1m[94mdetectors: [0mdan.AntiDAN
+[1m[94mdetectors: [0mdan.DAN
+[1m[94mdetectors: [0mdan.DANJailbreak
+[1m[94mdetectors: [0mdan.DUDE
+[1m[94mdetectors: [0mdan.DevMode
+[1m[94mdetectors: [0mdan.MarkdownLink
+[1m[94mdetectors: [0mdan.STAN
+[1m[94mdetectors: [0mdivergence 🌟
+[1m[94mdetectors: [0mdivergence.RepeatDiverges
+[1m[94mdetectors: [0mdivergence.RepeatedToken
+[1m[94mdetectors: [0mencoding 🌟
+[1m[94mdetectors: [0mencoding.DecodeApprox
+[1m[94mdetectors: [0mencoding.DecodeMatch
+[1m[94mdetectors: [0mexploitation 🌟
+[1m[94mdetectors: [0mexploitation.JinjaTemplateInjectionDetector
+[1m[94mdetectors: [0mexploitation.PythonCodeExecution
+[1m[94mdetectors: [0mexploitation.SQLiEcho
+[1m[94mdetectors: [0mexploitation.SQLiSuccess
+[1m[94mdetectors: [0mfileformats 🌟
+[1m[94mdetectors: [0mfileformats.FileIsExecutable
+[1m[94mdetectors: [0mfileformats.FileIsPickled
+[1m[94mdetectors: [0mfileformats.PossiblePickleName
+[1m[94mdetectors: [0mgoodside 🌟
+[1m[94mdetectors: [0mgoodside.Glitch
+[1m[94mdetectors: [0mgoodside.PlainJSON
+[1m[94mdetectors: [0mgoodside.RileyIsnt
+[1m[94mdetectors: [0mjudge 🌟
+[1m[94mdetectors: [0mjudge.ModelAsJudge
+[1m[94mdetectors: [0mjudge.Refusal
+[1m[94mdetectors: [0mjudge.RefusalOnlyAdversarial
+[1m[94mdetectors: [0mknownbadsignatures 🌟
+[1m[94mdetectors: [0mknownbadsignatures.EICAR
+[1m[94mdetectors: [0mknownbadsignatures.GTUBE
+[1m[94mdetectors: [0mknownbadsignatures.GTphish
+[1m[94mdetectors: [0mleakreplay 🌟
+[1m[94mdetectors: [0mleakreplay.StartsWith
+[1m[94mdetectors: [0mlmrc 🌟
+[1m[94mdetectors: [0mlmrc.Anthro
+[1m[94mdetectors: [0mlmrc.QuackMedicine
+[1m[94mdetectors: [0mmalwaregen 🌟
+[1m[94mdetectors: [0mmalwaregen.AnyCode
+[1m[94mdetectors: [0mmisleading 🌟
+[1m[94mdetectors: [0mmisleading.MustContradictNLI 💤
+[1m[94mdetectors: [0mmisleading.MustRefuteClaimKW
+[1m[94mdetectors: [0mmisleading.MustRefuteClaimModel
+[1m[94mdetectors: [0mmitigation 🌟
+[1m[94mdetectors: [0mmitigation.MitigationBypass
+[1m[94mdetectors: [0mmitigation.Prefixes
+[1m[94mdetectors: [0mpackagehallucination 🌟
+[1m[94mdetectors: [0mpackagehallucination.Dart 💤
+[1m[94mdetectors: [0mpackagehallucination.JavaScriptNpm 💤
+[1m[94mdetectors: [0mpackagehallucination.Perl 💤
+[1m[94mdetectors: [0mpackagehallucination.PythonPypi 💤
+[1m[94mdetectors: [0mpackagehallucination.RakuLand 💤
+[1m[94mdetectors: [0mpackagehallucination.RubyGems 💤
+[1m[94mdetectors: [0mpackagehallucination.RustCrates 💤
+[1m[94mdetectors: [0mperspective 🌟
+[1m[94mdetectors: [0mperspective.Attack_On_Author 💤
+[1m[94mdetectors: [0mperspective.Attack_On_Commenter 💤
+[1m[94mdetectors: [0mperspective.Flirtation 💤
+[1m[94mdetectors: [0mperspective.Identity_Attack 💤
+[1m[94mdetectors: [0mperspective.Identity_Attack_Experimental 💤
+[1m[94mdetectors: [0mperspective.Incoherent 💤
+[1m[94mdetectors: [0mperspective.Inflammatory 💤
+[1m[94mdetectors: [0mperspective.Insult 💤
+[1m[94mdetectors: [0mperspective.Insult_Experimental 💤
+[1m[94mdetectors: [0mperspective.Likely_To_Reject 💤
+[1m[94mdetectors: [0mperspective.Obscene 💤
+[1m[94mdetectors: [0mperspective.Profanity 💤
+[1m[94mdetectors: [0mperspective.Profanity_Experimental 💤
+[1m[94mdetectors: [0mperspective.Severe_Toxicity 💤
+[1m[94mdetectors: [0mperspective.Severe_Toxicity_Experimental 💤
+[1m[94mdetectors: [0mperspective.Sexually_Explicit 💤
+[1m[94mdetectors: [0mperspective.Spam 💤
+[1m[94mdetectors: [0mperspective.Threat 💤
+[1m[94mdetectors: [0mperspective.Threat_Experimental 💤
+[1m[94mdetectors: [0mperspective.Toxicity 💤
+[1m[94mdetectors: [0mperspective.Toxicity_Experimental 💤
+[1m[94mdetectors: [0mperspective.Unsubstantial 💤
+[1m[94mdetectors: [0mproductkey 🌟
+[1m[94mdetectors: [0mproductkey.Win5x5
+[1m[94mdetectors: [0mpromptinject 🌟
+[1m[94mdetectors: [0mpromptinject.AttackRogueString
+[1m[94mdetectors: [0mshields 🌟
+[1m[94mdetectors: [0mshields.Down
+[1m[94mdetectors: [0mshields.Up
+[1m[94mdetectors: [0msnowball 🌟
+[1m[94mdetectors: [0msnowball.DontStartNo
+[1m[94mdetectors: [0msnowball.DontStartYes
+[1m[94mdetectors: [0munsafe_content 🌟
+[1m[94mdetectors: [0munsafe_content.LDNOOBW
+[1m[94mdetectors: [0munsafe_content.Martin_haDistilbert
+[1m[94mdetectors: [0munsafe_content.OfcomOffensiveDiscriminatory
+[1m[94mdetectors: [0munsafe_content.OfcomOffensiveGeneral
+[1m[94mdetectors: [0munsafe_content.OfcomOffensiveMentalHealth
+[1m[94mdetectors: [0munsafe_content.OfcomOffensiveRaceEthnic
+[1m[94mdetectors: [0munsafe_content.OfcomOffensiveSexGender
+[1m[94mdetectors: [0munsafe_content.OfcomOffensiveSexual
+[1m[94mdetectors: [0munsafe_content.S_nlpDetox
+[1m[94mdetectors: [0munsafe_content.SlursReclaimedSlurs
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityAnimalReferences
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityBodilyFluids
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityMentalDisability
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityPhysicalAttributes
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityPhysicalDisability
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityPolitical
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityRacialEthnic
+[1m[94mdetectors: [0munsafe_content.SurgeProfanityReligious
+[1m[94mdetectors: [0munsafe_content.SurgeProfanitySexual
+[1m[94mdetectors: [0munsafe_content.SurgeProfanitySexualOrientationGender
+[1m[94mdetectors: [0munsafe_content.ToxicCommentModel
+[1m[94mdetectors: [0mvisual_jailbreak 🌟
+[1m[94mdetectors: [0mvisual_jailbreak.FigStep
+[1m[94mdetectors: [0mweb_injection 🌟
+[1m[94mdetectors: [0mweb_injection.MarkdownExfilBasic
+[1m[94mdetectors: [0mweb_injection.MarkdownExfilContent
+[1m[94mdetectors: [0mweb_injection.MarkdownExfilExtendedImage
+[1m[94mdetectors: [0mweb_injection.MarkdownExfilExtendedNonImage
+[1m[94mdetectors: [0mweb_injection.PlaygroundMarkdownExfil
+[1m[94mdetectors: [0mweb_injection.XSS

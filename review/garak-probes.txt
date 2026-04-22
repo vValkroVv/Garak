@@ -1,0 +1,222 @@
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:16:28.909853
+probes:
+|                            name                            |active|       tier       |                                   description                                   |
+|------------------------------------------------------------|------|------------------|---------------------------------------------------------------------------------|
+|                         ansiescape                         |   🌟  |                  |                                                                                 |
+|                   ansiescape.AnsiEscaped                   |   ✅  |   INFORMATIONAL  |               Probe for eliciting ANSI control codes from a model               |
+|                     ansiescape.AnsiRaw                     |   ✅  |    OF_CONCERN    |             Probe for eliciting raw ANSI control codes from a model             |
+|                ansiescape.AnsiRawTokenizerHF               |   💤  |    OF_CONCERN    |  Probe for checking a tokenizer for potentially malicious ANSI escape sequences |
+|                           apikey                           |   🌟  |                  |                                                                                 |
+|                     apikey.CompleteKey                     |   ✅  | COMPETE_WITH_SOTA|      Will the system try to complete an API key, when given a partial one?      |
+|                        apikey.GetKey                       |   ✅  | COMPETE_WITH_SOTA|    Will the system return secret looking strings, when asked for an API key?    |
+|                           atkgen                           |   🌟  |                  |                                                                                 |
+|                         atkgen.Tox                         |   ✅  | COMPETE_WITH_SOTA|   Automatic attack generation, trying to elicit toxic outputs from the model.   |
+|                            audio                           |   🌟  |                  |                                                                                 |
+|                   audio.AudioAchillesHeel                  |   💤  |     UNLISTED     |                            Audio is the Achilles Heel                           |
+|                      av_spam_scanning                      |   🌟  |                  |                                                                                 |
+|                   av_spam_scanning.EICAR                   |   💤  |     UNLISTED     | Does the model check its output for viruses? Try to send the EICAR code through |
+|                   av_spam_scanning.GTUBE                   |   💤  |     UNLISTED     |   Does the model check its output for spam? Try to send the GTUBE code through  |
+|                  av_spam_scanning.GTphish                  |   💤  |     UNLISTED     | Does the model check its output for phishing? Try to send the GTphish code thro…|
+|                          badchars                          |   🌟  |                  |                                                                                 |
+|                   badchars.BadCharacters                   |   ✅  | COMPETE_WITH_SOTA| Imperceptible perturbations mixing invisible chars, homoglyphs, swaps, deletion…|
+|                        continuation                        |   🌟  |                  |                                                                                 |
+|          continuation.ContinueSlursReclaimedSlurs          |   ✅  | COMPETE_WITH_SOTA|                Continue partial word with slur or reclaimed slur.               |
+|        continuation.ContinueSlursReclaimedSlursFull        |   💤  | COMPETE_WITH_SOTA|                Continue partial word with slur or reclaimed slur.               |
+|                             dan                            |   🌟  |                  |                                                                                 |
+|                    dan.Ablation_Dan_11_0                   |   ✅  | COMPETE_WITH_SOTA|                  Ablation experiments over the DAN 11.0 prompt                  |
+|                         dan.AntiDAN                        |   💤  |     UNLISTED     |                                     Anti-DAN                                    |
+|                         dan.AutoDAN                        |   💤  | COMPETE_WITH_SOTA|                    Probe leveraging AutoDAN attack generation                   |
+|                      dan.AutoDANCached                     |   ✅  | COMPETE_WITH_SOTA|                    Probe leveraging generated AutoDAN prompts                   |
+|              dan.ChatGPT_Developer_Mode_RANTI              |   💤  |     UNLISTED     |                             ChatGPT DevMode + Ranti                             |
+|                dan.ChatGPT_Developer_Mode_v2               |   💤  |     UNLISTED     |                            ChatGPT Developer Mode v2                            |
+|                 dan.ChatGPT_Image_Markdown                 |   💤  |     UNLISTED     |               ChatGPT Markdown Image Unlocker / markdown injection              |
+|                      dan.DAN_Jailbreak                     |   💤  |     UNLISTED     |                                  DAN Jailbreak                                  |
+|                          dan.DUDE                          |   💤  |     UNLISTED     |                                       DUDE                                      |
+|                      dan.DanInTheWild                      |   ✅  |    OF_CONCERN    |         A subset of jailbreaks from the DanInTheWild jailbreak library.         |
+|                    dan.DanInTheWildFull                    |   💤  |    OF_CONCERN    |                             A library of jailbreaks.                            |
+|                        dan.Dan_10_0                        |   💤  |     UNLISTED     |                                     DAN 10.0                                    |
+|                        dan.Dan_11_0                        |   💤  |     UNLISTED     |                                     DAN 11.0                                    |
+|                         dan.Dan_6_0                        |   💤  |     UNLISTED     |                                     DAN 6.0                                     |
+|                         dan.Dan_6_2                        |   💤  |     UNLISTED     |                                     DAN 6.2                                     |
+|                         dan.Dan_7_0                        |   💤  |     UNLISTED     |                                     DAN 7.0                                     |
+|                         dan.Dan_8_0                        |   💤  |     UNLISTED     |                                     DAN 8.0                                     |
+|                         dan.Dan_9_0                        |   💤  |     UNLISTED     |                                     DAN 9.0                                     |
+|                          dan.STAN                          |   💤  |     UNLISTED     |                                       STAN                                      |
+|                         divergence                         |   🌟  |                  |                                                                                 |
+|                      divergence.Repeat                     |   ✅  | COMPETE_WITH_SOTA| See if a model starts giving other data when asked to repeat a string indefinit…|
+|                  divergence.RepeatExtended                 |   💤  | COMPETE_WITH_SOTA| See if a model starts giving other data when asked to repeat a string indefinit…|
+|                  divergence.RepeatedToken                  |   ✅  |    OF_CONCERN    |    Repeated token destabilization attack from Dropbox LLM security research.    |
+|                           doctor                           |   🌟  |                  |                                                                                 |
+|                        doctor.Bypass                       |   💤  | COMPETE_WITH_SOTA|                         Implement Policy Puppetry Bypass                        |
+|                      doctor.BypassLeet                     |   💤  | COMPETE_WITH_SOTA|                         Implement Policy Puppetry Bypass                        |
+|                       doctor.Puppetry                      |   💤  | COMPETE_WITH_SOTA|                    Implement Policy Puppetry Prompt Injection                   |
+|                         donotanswer                        |   🌟  |                  |                                                                                 |
+| donotanswer.DiscriminationExclusionToxicityHatefulOffensive|   💤  |     UNLISTED     | Implementation of discrimination_exclusion_toxicity_hateful_offensive probes in…|
+|                  donotanswer.HumanChatbox                  |   💤  |     UNLISTED     |          Implementation of human_chatbox probes in DoNotAnswer_Prompts          |
+|                donotanswer.InformationHazard               |   💤  |     UNLISTED     |        Implementation of information_hazard probes in DoNotAnswer_Prompts       |
+|                  donotanswer.MaliciousUses                 |   💤  |     UNLISTED     |          Implementation of malicious_uses probes in DoNotAnswer_Prompts         |
+|               donotanswer.MisinformationHarms              |   💤  |     UNLISTED     |       Implementation of misinformation_harms probes in DoNotAnswer_Prompts      |
+|                             dra                            |   🌟  |                  |                                                                                 |
+|                           dra.DRA                          |   ✅  |    OF_CONCERN    |                     DRA (Disguise and Reconstruction Attack)                    |
+|                       dra.DRAAdvanced                      |   💤  |    OF_CONCERN    |         DRA (Disguise and Reconstruction Attack) - Version with detoxify        |
+|                          encoding                          |   🌟  |                  |                                                                                 |
+|                   encoding.InjectAscii85                   |   ✅  | COMPETE_WITH_SOTA|              Probe for susceptibility to base85 encoded injections              |
+|                    encoding.InjectAtbash                   |   ✅  | COMPETE_WITH_SOTA|                        Atbash Probe Credit: Nakul-Rajpal                        |
+|                    encoding.InjectBase16                   |   ✅  | COMPETE_WITH_SOTA|              Probe for susceptibility to base16 encoded injections"             |
+|                   encoding.InjectBase2048                  |   ✅  | COMPETE_WITH_SOTA|             Probe for susceptibility to Base2048 encoding injections            |
+|                    encoding.InjectBase32                   |   ✅  | COMPETE_WITH_SOTA|              Probe for susceptibility to base32 encoded injections              |
+|                    encoding.InjectBase64                   |   ✅  |    OF_CONCERN    |              Probe for susceptibility to base64 encoded injections              |
+|                   encoding.InjectBraille                   |   ✅  | COMPETE_WITH_SOTA|    Probe for susceptibility to Braille encoding injections. Credit Wally#3422   |
+|                    encoding.InjectEcoji                    |   ✅  | COMPETE_WITH_SOTA|                   Probe for susceptibility to Ecoji encoding.                   |
+|                     encoding.InjectHex                     |   ✅  | COMPETE_WITH_SOTA|                Probe for susceptibility to hex encoded injections               |
+|                     encoding.InjectLeet                    |   💤  | COMPETE_WITH_SOTA|                   Probe for susceptibility to 31337 encoding.                   |
+|                     encoding.InjectMime                    |   💤  | COMPETE_WITH_SOTA|               Probe for susceptibility to MIME encoding injections              |
+|                    encoding.InjectMorse                    |   ✅  | COMPETE_WITH_SOTA|          Probe for susceptibility to Morse encoding. Credit Wally#3422          |
+|                     encoding.InjectNato                    |   ✅  | COMPETE_WITH_SOTA|           Probe for susceptibility to Nato phonetic alphabet encoding.          |
+|                      encoding.InjectQP                     |   💤  |    OF_CONCERN    |                Probe for susceptibility to QP encoded injections                |
+|                    encoding.InjectROT13                    |   ✅  | COMPETE_WITH_SOTA|              Probe for susceptibility to ROT13 encoding injections              |
+|                  encoding.InjectSneakyBits                 |   💤  | COMPETE_WITH_SOTA|       Probe for susceptibility to unicode variant selector ASCII smuggling      |
+|                      encoding.InjectUU                     |   ✅  |    OF_CONCERN    |                Probe for susceptibility to UU encoded injections                |
+|               encoding.InjectUnicodeTagChars               |   ✅  |    OF_CONCERN    |             Probe for susceptibility to unicode tag ASCII smuggling             |
+|           encoding.InjectUnicodeVariantSelectors           |   💤  | COMPETE_WITH_SOTA|       Probe for susceptibility to unicode variant selector ASCII smuggling      |
+|                    encoding.InjectZalgo                    |   ✅  | COMPETE_WITH_SOTA|                   Probe for susceptibility to Zalgo encoding.                   |
+|                        exploitation                        |   🌟  |                  |                                                                                 |
+|          exploitation.JinjaTemplatePythonInjection         |   ✅  |    OF_CONCERN    |               Attempts to execute Python code via Jinja templating              |
+|                exploitation.SQLInjectionEcho               |   ✅  |    OF_CONCERN    |               Attempts to get the target to echo a SQL statement.               |
+|               exploitation.SQLInjectionSystem              |   💤  |    OF_CONCERN    |         Attempts to inject untrusted SQL commands into a SQL statement.         |
+|                         fileformats                        |   🌟  |                  |                                                                                 |
+|                    fileformats.HF_Files                    |   💤  |    OF_CONCERN    |         Get a manifest of files associated with a Hugging Face generator        |
+|                            fitd                            |   🌟  |                  |                                                                                 |
+|                          fitd.FITD                         |   💤  |   INFORMATIONAL  |                              Foot In The Door probe                             |
+|                           glitch                           |   🌟  |                  |                                                                                 |
+|                        glitch.Glitch                       |   💤  |   INFORMATIONAL  |           Probe model for glitch tokens that provoke unusual behavior           |
+|                      glitch.GlitchFull                     |   💤  |   INFORMATIONAL  |           Probe model for glitch tokens that provoke unusual behavior           |
+|                          goodside                          |   🌟  |                  |                                                                                 |
+|                      goodside.Davidjl                      |   💤  |   INFORMATIONAL  |                        Exploit the ' davidjl' magic token                       |
+|                        goodside.Tag                        |   ✅  |    OF_CONCERN    |        Exploit UTF tag page encoding for user-invisible prompt injection        |
+|                    goodside.ThreatenJSON                   |   ✅  | COMPETE_WITH_SOTA|                     Will model strip preamble and give JSON?                    |
+|                     goodside.WhoIsRiley                    |   ✅  | COMPETE_WITH_SOTA|                      Probe for misinfo about Riley Goodside                     |
+|                           grandma                          |   🌟  |                  |                                                                                 |
+|                        grandma.Slurs                       |   ✅  |    OF_CONCERN    |                   Use the grandma attack to get ethnic slurs.                   |
+|                     grandma.Substances                     |   ✅  |    OF_CONCERN    |          Use the grandma attack to get instructions for harmful items.          |
+|                        grandma.Win10                       |   ✅  | COMPETE_WITH_SOTA|          Will the model yield a Windows 10 product key if we beg it to?         |
+|                        grandma.Win11                       |   ✅  | COMPETE_WITH_SOTA|          Will the model yield a Windows 11 product key if we beg it to?         |
+|                       latentinjection                      |   🌟  |                  |                                                                                 |
+|      latentinjection.LatentInjectionFactSnippetEiffel      |   ✅  |    OF_CONCERN    |    String-based latent prompt injections in fact snippets on the Eiffel Tower   |
+|    latentinjection.LatentInjectionFactSnippetEiffelFull    |   💤  |    OF_CONCERN    |    String-based latent prompt injections in fact snippets on the Eiffel Tower   |
+|       latentinjection.LatentInjectionFactSnippetLegal      |   ✅  |    OF_CONCERN    |             String-based latent prompt injections in legal snippets             |
+|     latentinjection.LatentInjectionFactSnippetLegalFull    |   💤  |    OF_CONCERN    |             String-based latent prompt injections in legal snippets             |
+|            latentinjection.LatentInjectionReport           |   ✅  |    OF_CONCERN    |                String-based latent prompt injections via a report               |
+|          latentinjection.LatentInjectionReportFull         |   💤  |    OF_CONCERN    |                String-based latent prompt injections via a report               |
+|            latentinjection.LatentInjectionResume           |   ✅  |    OF_CONCERN    |                String-based latent prompt injections via a resume               |
+|          latentinjection.LatentInjectionResumeFull         |   💤  |    OF_CONCERN    |                String-based latent prompt injections via a resume               |
+|       latentinjection.LatentInjectionTranslationEnFr       |   ✅  |    OF_CONCERN    |              String-based latent prompt injections via translation              |
+|     latentinjection.LatentInjectionTranslationEnFrFull     |   💤  |    OF_CONCERN    |              String-based latent prompt injections via translation              |
+|       latentinjection.LatentInjectionTranslationEnZh       |   ✅  |    OF_CONCERN    |                 Latent prompt injection in Chinese context (简体字)                |
+|     latentinjection.LatentInjectionTranslationEnZhFull     |   💤  |    OF_CONCERN    |                 Latent prompt injection in Chinese context (简体字)                |
+|               latentinjection.LatentJailbreak              |   ✅  |    OF_CONCERN    |        Implementation of Latent Jailbreak, using latent prompt injection-       |
+|             latentinjection.LatentJailbreakFull            |   💤  |    OF_CONCERN    |        Implementation of Latent Jailbreak, using latent prompt injection-       |
+|                 latentinjection.LatentWhois                |   ✅  |    OF_CONCERN    |                 Latent prompt injections in whois probe reports                 |
+|             latentinjection.LatentWhoisSnippet             |   ✅  |    OF_CONCERN    |              String-based latent prompt injections in whois reports             |
+|           latentinjection.LatentWhoisSnippetFull           |   💤  |    OF_CONCERN    |              String-based latent prompt injections in whois reports             |
+|                         leakreplay                         |   🌟  |                  |                                                                                 |
+|                  leakreplay.GuardianCloze                  |   ✅  | COMPETE_WITH_SOTA|           Lightweight version of Guardian cloze test for data leakage.          |
+|                leakreplay.GuardianClozeFull                |   💤  | COMPETE_WITH_SOTA| Test for data leakage on Guardian articles with masked entities in a cloze test…|
+|                 leakreplay.GuardianComplete                |   ✅  |    OF_CONCERN    |        Lightweight version of Guardian completion test for data leakage.        |
+|               leakreplay.GuardianCompleteFull              |   💤  |    OF_CONCERN    |       Test for data leakage on Guardian articles through text completion.       |
+|                 leakreplay.LiteratureCloze                 |   ✅  | COMPETE_WITH_SOTA|          Lightweight version of literature cloze test for data leakage.         |
+|               leakreplay.LiteratureClozeFull               |   💤  | COMPETE_WITH_SOTA| Test for data leakage on literature passages with masked entities in a cloze te…|
+|                leakreplay.LiteratureComplete               |   ✅  | COMPETE_WITH_SOTA|       Lightweight version of literature completion test for data leakage.       |
+|              leakreplay.LiteratureCompleteFull             |   💤  | COMPETE_WITH_SOTA|      Test for data leakage on literature passages through text completion.      |
+|                     leakreplay.NYTCloze                    |   ✅  | COMPETE_WITH_SOTA|             Lightweight version of NYT cloze test for data leakage.             |
+|                   leakreplay.NYTClozeFull                  |   💤  | COMPETE_WITH_SOTA| Test for data leakage on New York Times articles with masked entities in a cloz…|
+|                   leakreplay.NYTComplete                   |   ✅  |    OF_CONCERN    |           Lightweight version of NYT completion test for data leakage.          |
+|                 leakreplay.NYTCompleteFull                 |   💤  |    OF_CONCERN    |    Test for data leakage on New York Times articles through text completion.    |
+|                   leakreplay.PotterCloze                   |   ✅  | COMPETE_WITH_SOTA|         Lightweight version of Harry Potter cloze test for data leakage.        |
+|                 leakreplay.PotterClozeFull                 |   💤  | COMPETE_WITH_SOTA| Test for data leakage on Harry Potter text with masked entities in a cloze test…|
+|                  leakreplay.PotterComplete                 |   ✅  |    OF_CONCERN    |      Lightweight version of Harry Potter completion test for data leakage.      |
+|                leakreplay.PotterCompleteFull               |   💤  |    OF_CONCERN    |          Test for data leakage on Harry Potter text through completion.         |
+|                            lmrc                            |   🌟  |                  |                                                                                 |
+|                  lmrc.Anthropomorphisation                 |   💤  |   INFORMATIONAL  |       Providing output that encourages anthropomorphisation of AI systems       |
+|                        lmrc.Bullying                       |   ✅  | COMPETE_WITH_SOTA|                   Generation of repeated threats, denigration                   |
+|                       lmrc.Deadnaming                      |   ✅  | COMPETE_WITH_SOTA|       Mentioning a name that a person does not wish to be associated with       |
+|                       lmrc.Profanity                       |   💤  |   INFORMATIONAL  |           Using profane words, especially when not prompted to do so.           |
+|                     lmrc.QuackMedicine                     |   ✅  | COMPETE_WITH_SOTA|                        Promoting non-scientific medicine.                       |
+|                     lmrc.SexualContent                     |   ✅  | COMPETE_WITH_SOTA| Content that discusses bodies and interactions in a sexual manner, or other sex…|
+|                     lmrc.Sexualisation                     |   ✅  | COMPETE_WITH_SOTA| Causal or overt sexual objectification, reducing a person or group of people to…|
+|                       lmrc.SlurUsage                       |   ✅  | COMPETE_WITH_SOTA| Using an identity-based slur in a non-reclaimed way - either directly or recomm…|
+|                         malwaregen                         |   🌟  |                  |                                                                                 |
+|                     malwaregen.Evasion                     |   ✅  | COMPETE_WITH_SOTA|              Will the model write code to help avoid anti-malware?              |
+|                     malwaregen.Payload                     |   ✅  | COMPETE_WITH_SOTA|               Will the model help write code for malware payloads?              |
+|                   malwaregen.SubFunctions                  |   ✅  | COMPETE_WITH_SOTA|                  Will the system write code helpful in malware?                 |
+|                     malwaregen.TopLevel                    |   ✅  | COMPETE_WITH_SOTA|             Will the system return code when asked to write malware?            |
+|                         misleading                         |   🌟  |                  |                                                                                 |
+|                  misleading.FalseAssertion                 |   ✅  | COMPETE_WITH_SOTA|             Does the model reject [questions based on] false claims?            |
+|                    packagehallucination                    |   🌟  |                  |                                                                                 |
+|                  packagehallucination.Dart                 |   ✅  |    OF_CONCERN    |      Attempts to generate Dart code including hallucinated pub.dev packages     |
+|               packagehallucination.JavaScript              |   ✅  |    OF_CONCERN    |     Attempts to generate JavaScript code including hallucinated npm packages    |
+|                  packagehallucination.Perl                 |   ✅  |    OF_CONCERN    |     Attempts to generate Perl code including hallucinated MetaCPAN packages     |
+|                 packagehallucination.Python                |   ✅  |    OF_CONCERN    |        Attempts to generate Python3 code including hallucinated packages        |
+|                packagehallucination.RakuLand               |   ✅  |    OF_CONCERN    |     Attempts to generate Raku code including hallucinated raku.land packages    |
+|                  packagehallucination.Ruby                 |   ✅  |    OF_CONCERN    |            Attempts to generate Ruby code including hallucinated gems           |
+|                  packagehallucination.Rust                 |   ✅  |    OF_CONCERN    |     Attempts to generate Rust code including hallucinated crates.io packages    |
+|                          phrasing                          |   🌟  |                  |                                                                                 |
+|                    phrasing.FutureTense                    |   ✅  | COMPETE_WITH_SOTA|       Attempt to evade safeguards by setting requests in the future tense       |
+|                  phrasing.FutureTenseFull                  |   💤  | COMPETE_WITH_SOTA| Will the system give unsafe responses when asked to write about weapon creation…|
+|                     phrasing.PastTense                     |   ✅  | COMPETE_WITH_SOTA|        Attempt to evade safeguards by setting requests in the past tense        |
+|                   phrasing.PastTenseFull                   |   💤  | COMPETE_WITH_SOTA| Will the system give unsafe responses when asked to write about weapon creation…|
+|                        promptinject                        |   🌟  |                  |                                                                                 |
+|                promptinject.HijackHateHumans               |   ✅  | COMPETE_WITH_SOTA| PromptInject is a framework that assembles prompts in a modular fashion to prov…|
+|              promptinject.HijackHateHumansFull             |   💤  | COMPETE_WITH_SOTA| PromptInject is a framework that assembles prompts in a modular fashion to prov…|
+|                promptinject.HijackKillHumans               |   ✅  | COMPETE_WITH_SOTA| PromptInject is a framework that assembles prompts in a modular fashion to prov…|
+|              promptinject.HijackKillHumansFull             |   💤  | COMPETE_WITH_SOTA| PromptInject is a framework that assembles prompts in a modular fashion to prov…|
+|                promptinject.HijackLongPrompt               |   ✅  | COMPETE_WITH_SOTA| PromptInject is a framework that assembles prompts in a modular fashion to prov…|
+|              promptinject.HijackLongPromptFull             |   💤  | COMPETE_WITH_SOTA| PromptInject is a framework that assembles prompts in a modular fashion to prov…|
+|                     realtoxicityprompts                    |   🌟  |                  |                                                                                 |
+|                realtoxicityprompts.RTPBlank                |   ✅  |    OF_CONCERN    |                 Implementation of probes in RealToxicityPrompts                 |
+|              realtoxicityprompts.RTPFlirtation             |   💤  |   INFORMATIONAL  |            Implementation of flirtation probes in RealToxicityPrompts           |
+|           realtoxicityprompts.RTPIdentity_Attack           |   💤  |   INFORMATIONAL  |         Implementation of identity_attack probes in RealToxicityPrompts         |
+|                realtoxicityprompts.RTPInsult               |   💤  |   INFORMATIONAL  |              Implementation of insult probes in RealToxicityPrompts             |
+|              realtoxicityprompts.RTPProfanity              |   💤  |   INFORMATIONAL  |            Implementation of profanity probes in RealToxicityPrompts            |
+|           realtoxicityprompts.RTPSevere_Toxicity           |   💤  |   INFORMATIONAL  |         Implementation of severe_toxicity probes in RealToxicityPrompts         |
+|          realtoxicityprompts.RTPSexually_Explicit          |   💤  |   INFORMATIONAL  |        Implementation of sexually_explicit probes in RealToxicityPrompts        |
+|                realtoxicityprompts.RTPThreat               |   💤  |   INFORMATIONAL  |              Implementation of threat probes in RealToxicityPrompts             |
+|                            sata                            |   🌟  |                  |                                                                                 |
+|                          sata.MLM                          |   ✅  | COMPETE_WITH_SOTA|                Masked Language Model Simple Assistive Task Probe                |
+|                          smuggling                         |   🌟  |                  |                                                                                 |
+|                  smuggling.FunctionMasking                 |   💤  |   INFORMATIONAL  |                              FunctionMasking probe                              |
+|               smuggling.HypotheticalResponse               |   💤  |   INFORMATIONAL  |                            HypotheticalResponse probe                           |
+|                          snowball                          |   🌟  |                  |                                                                                 |
+|                 snowball.GraphConnectivity                 |   ✅  | COMPETE_WITH_SOTA|                   Probe asking for impossible flight routings                   |
+|               snowball.GraphConnectivityFull               |   💤  | COMPETE_WITH_SOTA|                   Probe asking for impossible flight routings                   |
+|                       snowball.Primes                      |   💤  |   INFORMATIONAL  |                    Ask model to check a list of higher primes                   |
+|                     snowball.PrimesFull                    |   💤  |   INFORMATIONAL  |                    Ask model to check a list of higher primes                   |
+|                      snowball.Senators                     |   💤  |   INFORMATIONAL  |                       Asking for senators that don't exist                      |
+|                    snowball.SenatorsFull                   |   💤  |   INFORMATIONAL  |                       Asking for senators that don't exist                      |
+|                           suffix                           |   🌟  |                  |                                                                                 |
+|                        suffix.BEAST                        |   💤  | COMPETE_WITH_SOTA|                                   BEAST probe                                   |
+|                         suffix.GCG                         |   💤  | COMPETE_WITH_SOTA|                         Greedy Coordinate Gradient probe                        |
+|                      suffix.GCGCached                      |   ✅  | COMPETE_WITH_SOTA|                     Greedy Coordinate Gradient Cached probe                     |
+|                             tap                            |   🌟  |                  |                                                                                 |
+|                          tap.PAIR                          |   💤  | COMPETE_WITH_SOTA|            Prompt Automatic Iterative Refinement automatic jailbreak            |
+|                           tap.TAP                          |   💤  | COMPETE_WITH_SOTA|  Tree of Attacks with Pruning Probe, generating new attacks against the target  |
+|                        tap.TAPCached                       |   ✅  | COMPETE_WITH_SOTA|             Tree of Attacks with Pruning Probe using cached attacks             |
+|                            test                            |   🌟  |                  |                                                                                 |
+|                         test.Blank                         |   💤  |     UNLISTED     |                                   Blank prompt                                  |
+|                          test.Test                         |   💤  |     UNLISTED     |                                    Test probe                                   |
+|                            topic                           |   🌟  |                  |                                                                                 |
+|                  topic.WordnetAllowedWords                 |   💤  |     UNLISTED     | Use Wordnet to find out if a model will discuss terms near but not in its allow…|
+|                  topic.WordnetBlockedWords                 |   💤  |     UNLISTED     | Use Wordnet to explore which topics a model will respond to around blocked words|
+|                 topic.WordnetControversial                 |   ✅  | COMPETE_WITH_SOTA|              Ask model to respond on a set on controversial topics.             |
+|                      visual_jailbreak                      |   🌟  |                  |                                                                                 |
+|                  visual_jailbreak.FigStep                  |   💤  | COMPETE_WITH_SOTA|                    Using image modality to assist jailbreak.                    |
+|                visual_jailbreak.FigStepFull                |   💤  | COMPETE_WITH_SOTA|                    Using image modality to assist jailbreak.                    |
+|                        web_injection                       |   🌟  |                  |                                                                                 |
+|              web_injection.ColabAIDataLeakage              |   ✅  |    OF_CONCERN    |      Leak data via image rendering as demonstrated against Gemini in Colab.     |
+|              web_injection.MarkdownImageExfil              |   ✅  |    OF_CONCERN    |   Can we get the model to write embedded assets exfiltrating text in the URI?   |
+|         web_injection.MarkdownURIImageExfilExtended        |   ✅  |    OF_CONCERN    | Generalized implementation of data exfiltration exploits through Markdown URIs. |
+|       web_injection.MarkdownURINonImageExfilExtended       |   ✅  |    OF_CONCERN    | Generalized implementation of data exfiltration exploits through Markdown URIs. |
+|                  web_injection.MarkdownXSS                 |   ✅  |    OF_CONCERN    | Perform cross site scripting attacks using Markdown Javascript rendering via pr…|
+|            web_injection.PlaygroundMarkdownExfil           |   ✅  |    OF_CONCERN    |             Markdown image URI exfil exploit published 2023 Sept 29.            |
+|            web_injection.StringAssemblyDataExfil           |   ✅  |    OF_CONCERN    |                     Prompt injection for manipulating state                     |
+|                    web_injection.TaskXSS                   |   ✅  |    OF_CONCERN    |            Perform cross site scripting attacks via prompt injection.           |

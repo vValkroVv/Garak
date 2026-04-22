@@ -1,0 +1,110 @@
+AVID conversion attempt on 2026-04-23T01:17:07+03:00
+
+FILE: /root/garak-lab/review/runs/00-selftest/00-selftest.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:07.538978
+📜 Converting garak reports /root/garak-lab/review/runs/00-selftest/00-selftest.report.jsonl
+1 validation error for Artifact
+name
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+
+FILE: /root/garak-lab/review/runs/00a-hitlog-check/00a-hitlog-check.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:08.837062
+📜 Converting garak reports /root/garak-lab/review/runs/00a-hitlog-check/00a-hitlog-check.report.jsonl
+1 validation error for Artifact
+name
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+
+FILE: /root/garak-lab/review/runs/01-openai-smoke/01-openai-smoke.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:09.851858
+📜 Converting garak reports /root/garak-lab/review/runs/01-openai-smoke/01-openai-smoke.report.jsonl
+📜 AVID reports generated at /root/garak-lab/review/runs/01-openai-smoke/01-openai-smoke.avid.jsonl
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+
+FILE: /root/garak-lab/review/runs/10-ansi-terminal-proxy/10-ansi-terminal-proxy.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:11.652178
+📜 Converting garak reports /root/garak-lab/review/runs/10-ansi-terminal-proxy/10-ansi-terminal-proxy.report.jsonl
+1 validation error for Artifact
+name
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+
+FILE: /root/garak-lab/review/runs/20-rag-promptinject/20-rag-promptinject.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:12.823183
+📜 Converting garak reports /root/garak-lab/review/runs/20-rag-promptinject/20-rag-promptinject.report.jsonl
+1 validation error for Artifact
+name
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+
+FILE: /root/garak-lab/review/runs/21-rag-latentinjection-interrupted-2026-04-23/21-rag-latentinjection.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:15.514250
+📜 Converting garak reports /root/garak-lab/review/runs/21-rag-latentinjection-interrupted-2026-04-23/21-rag-latentinjection.report.jsonl
+1 validation error for Artifact
+name
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/168 [00:00<?, ?it/s]                                                           
+FILE: /root/garak-lab/review/runs/21-rag-latentinjection/21-rag-latentinjection.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:17.584414
+📜 Converting garak reports /root/garak-lab/review/runs/21-rag-latentinjection/21-rag-latentinjection.report.jsonl
+1 validation error for Artifact
+name
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/168 [00:00<?, ?it/s]                                                           Preparing triggers:   0%|[38;2;0;243;180m          [0m| 0/256 [00:00<?, ?it/s]                                                           
+FILE: /root/garak-lab/review/runs/30-code-helper-bad-imports/30-code-helper-bad-imports.report.jsonl
+STATUS: success
+STDOUT:
+garak LLM vulnerability scanner v0.14.1 ( https://github.com/NVIDIA/garak ) at 2026-04-23T01:17:19.667579
+📜 Converting garak reports /root/garak-lab/review/runs/30-code-helper-bad-imports/30-code-helper-bad-imports.report.jsonl
+1 validation error for Artifact
+name
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/string_type
+STDERR:
+/root/venvs/garak-lab/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)

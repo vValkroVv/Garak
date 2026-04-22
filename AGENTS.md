@@ -12,3 +12,5 @@ This repository is an NVIDIA Garak testing project.
 - Keep the repository structure minimal unless expansion is necessary.
 - Update `README.md` when adding commands, setup steps, or new workflows.
 - Favor clear naming and short documentation for anything user-facing.
+- Write Garak run artifacts into the repo-relative `runs/` directory under `Garak/runs`.
+- When Garak is rerun, keep the canonical report files and console logs inside `Garak/runs` rather than external lab paths.

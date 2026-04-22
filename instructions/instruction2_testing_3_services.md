@@ -388,3 +388,33 @@ python -m garak \
 | rag-summarizer-naive       | http://127.0.0.1:8002/generate | prompt injection / latent PI | yes          | promptinject, latentinjection          | yes/no        | ...            |
 | code-helper-bad-imports    | http://127.0.0.1:8003/generate | package hallucination         | yes          | packagehallucination.Python            | yes/no        | ...            |
 ```
+
+---
+
+## Закрытие Инструкции 2
+
+Статус: завершено `2026-04-23`.
+
+Итоговая рабочая таблица:
+
+```markdown
+| Service                  | Endpoint                        | Intended vulnerability              | Manual proof | Garak probes used                           | Garak caught? | Evidence files |
+|-------------------------|---------------------------------|-------------------------------------|--------------|---------------------------------------------|---------------|----------------|
+| ansi-terminal-proxy     | http://127.0.0.1:8001/generate  | ANSI control sequence output        | yes          | ansiescape.AnsiRaw, ansiescape.AnsiEscaped  | yes           | runs/10-ansi-terminal-proxy |
+| rag-summarizer-naive    | http://127.0.0.1:8002/generate  | prompt injection / latent injection | yes          | promptinject, latentinjection               | yes           | runs/20-rag-promptinject; runs/21-rag-latentinjection |
+| code-helper-bad-imports | http://127.0.0.1:8003/generate  | package hallucination               | yes          | packagehallucination.Python                 | yes           | runs/30-code-helper-bad-imports |
+```
+
+Артефакты закрытия:
+
+- ANSI service: [`../runs/10-ansi-terminal-proxy`](../runs/10-ansi-terminal-proxy)
+- Prompt injection run: [`../runs/20-rag-promptinject`](../runs/20-rag-promptinject)
+- Latent injection run: [`../runs/21-rag-latentinjection`](../runs/21-rag-latentinjection)
+- Interrupted first latent attempt preserved separately: [`../runs/21-rag-latentinjection-interrupted-2026-04-23`](../runs/21-rag-latentinjection-interrupted-2026-04-23)
+- Package hallucination run: [`../runs/30-code-helper-bad-imports`](../runs/30-code-helper-bad-imports)
+- Full execution trace and recovered-session notes: [`../docs/instruction2-testing-trace.md`](../docs/instruction2-testing-trace.md)
+
+Примечание по recovery:
+
+- К моменту восстановления текущий ключ OpenAI из `.env` уже отвечал `401 invalid_api_key`, поэтому сервисы были переподняты с fallback-ветками на случай недоступности upstream OpenAI API.
+- Намеренные уязвимости при этом были сохранены: ANSI-префикс, возврат инъецированного маркера/латентной строки и подмешивание фейковых imports.

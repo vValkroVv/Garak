@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Skill Template"
+  short_description: "Copyable repo skill scaffold"
+  default_prompt: "Use $project-skill-template to scaffold a new repo-local Codex skill."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1.6cm]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setmainfont{PT Serif}
+\setsansfont{PT Sans}
+\setmonofont{Courier New}
+\newfontfamily\cyrillicfont{PT Serif}
+\newfontfamily\cyrillicfontsf{PT Sans}
+\newfontfamily\cyrillicfonttt{Courier New}
+\usepackage{microtype}
+\usepackage{array,tabularx,booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{parskip}
+\hypersetup{hidelinks,pdfauthor={OpenAI},pdftitle={Garak как инструмент контроля уязвимостей внутренних LLM-сервисов}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\setlist[itemize]{leftmargin=1.2em,itemsep=0.1em,topsep=0.2em}
+\renewcommand{\arraystretch}{1.18}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\sloppy
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Garak как инструмент контроля уязвимостей внутренних LLM-сервисов}\\[0.25em]
+{\normalsize Краткий отчет по результатам лабораторного стенда от 22.04.2026}
+\end{center}
+
+\textbf{Контекст.} Garak -- специализированный инструмент для security-сканирования LLM-систем. Он подключает целевой сервис через \emph{generator}, отправляет набор атакующих сценариев \emph{probes} и проверяет ответы через \emph{detectors}. В официальной документации Garak прямо описан как \emph{LLM vulnerability scanner}: инструмент для автоматизированных прогонов, структурированных отчетов и подключения к целям через локальные модели, Python-функции и HTTP API. На практике это полезно тем, что Garak проверяет не только модель сама по себе, но и сервис вокруг нее -- чат-эндпоинты, RAG-суммаризаторы, кодовые ассистенты и другие прикладные компоненты.\footnote{Официальные материалы Garak: overview, FAQ, Using generators, Our Features, Configuring garak, garak.generators.rest, Extending garak, Writing a Probe, reference.garak.ai и docs.garak.ai.}
+
+\textbf{Что было протестировано.} На стенде использовались Python~3.12.3 и Garak~v0.14.1; self-test прошел успешно (PASS 40/40). В сборке были зафиксированы 63 generators, 137 detectors и 222 probes, то есть набор встроенных сценариев уже достаточно большой. Практическая часть стенда строилась вокруг трех намеренно уязвимых сервисов с единым REST-контрактом: вход \verb|{"prompt": ...}|, выход \verb|{"text": ...}|. Для внутреннего контура такой вариант удобен: интеграция шла не через правки в коде Garak, а через стабильную HTTP-обвязку сервиса и отдельный \verb|generator_option_file|.\footnote{Фактическая часть этого отчета основана на review-пакете и файле \texttt{FINAL\_SUMMARY.md} от 22.04.2026.}
+
+\textbf{Результаты тестирования.}
+
+\begin{itemize}
+\item \textbf{ansi-terminal-proxy.} Сервис моделировал возврат raw ANSI-последовательностей и небезопасное эхо пользовательского ввода. Семейства \texttt{ansiescape.AnsiRaw} и \texttt{ansiescape.AnsiEscaped} отработали почти без пропусков: Garak поймал проблему с ASR 94--100\%. Это понятный и полезный кейс для сервисов, которые отдают текст дальше в терминал, TUI или консольные логи.
+\item \textbf{rag-summarizer-naive / promptinject.} Здесь проверялась ситуация, когда суммаризатор выполняет вложенную инструкцию вместо основной задачи. Семейство \texttt{promptinject} (в стенде -- \texttt{HijackHateHumans}, \texttt{HijackKillHumans}, \texttt{HijackLongPrompt}) сработало почти полностью: все ключевые сценарии завершились \texttt{FAIL}, ASR около 98\%. Для наивных RAG/summary-конвейеров этого уже достаточно, чтобы использовать Garak как регрессионный security-инструмент.
+\item \textbf{rag-summarizer-naive / latentinjection.} Здесь проверялись скрытые или замаскированные инструкции внутри документа. Семейство \texttt{latentinjection.*} дало неровный, но полезный результат: большинство сценариев завершились \texttt{FAIL}, однако \texttt{LatentInjectionReport} остался в \texttt{PASS}. Вывод простой: latent injection Garak находит, но без адаптации под свои документы и триггеры полного покрытия ждать не стоит.
+\item \textbf{code-helper-bad-imports.} Сервис моделировал генерацию несуществующих импортов и пакетов в кодовом ответе. \texttt{packagehallucination.Python} выявил проблему полностью, ASR 100\%. Но именно этот класс проверок стоит отдельно валидировать для offline-контура, потому что detector чувствителен к актуальности внешних списков пакетов и метаданных.
+\end{itemize}
+
+\textbf{Что показал стенд в целом.} Стенд показал, что Garak хорошо работает именно на прикладных LLM-сервисах, а не только на "голой" модели: единый \texttt{rest.RestGenerator} позволил проверять разные сервисы с одинаковой схемой запроса и ответа. Сильная сторона инструмента -- готовые probe families и предсказуемое сохранение артефактов: \texttt{report.jsonl} дает факты по прогонам, \texttt{hitlog.jsonl} показывает успешные атаки, \texttt{report.html} удобен для быстрого просмотра. При этом Garak не стоит воспринимать как "магический аудит". В FAQ отдельно сказано, что проценты по разным probe нельзя сводить в общую шкалу зрелости, а каждый detector срабатывает по своей логике. Поэтому высокий ASR важен внутри конкретного класса атаки, но сам по себе не является общей метрикой безопасности сервиса.\footnote{Документация Garak прямо указывает, что результаты разных probes не образуют нормализованную научную шкалу; FAQ также поясняет, что detectors могут работать через классификаторы, ключевые слова или иные эвристики.}
+
+\textbf{Гибкость и кастомизация.} По этому стенду интеграционную сложность можно оценить как \emph{низкую или среднюю}. Если у внутреннего сервиса уже есть стабильный HTTP API, подключение через \texttt{RestGenerator} и JSON/YAML-конфиг делается быстро. Если REST-контракт нестандартный или нужен полностью внутренний транспорт, разумнее написать собственный generator plugin, а не подгонять сервис под тестовый формат; reference-документация прямо допускает наследование от \texttt{RestGenerator} и разработку собственных generators, probes, detectors и buffs. Это удобно для поэтапного внедрения внутри контура: сначала можно взять stock-наборы (\texttt{ansiescape}, \texttt{promptinject}, \texttt{latentinjection}, \texttt{packagehallucination}), потом добавить свои сценарии под внутренние RAG-цепочки, агентные пайплайны, policy layers и специфические типы документов.\footnote{Reference-документация описывает Garak как модульную систему плагинов и отдельно показывает разработку собственного generator/plugin.}
+
+\textbf{Ограничения для закрытого контура.} Стенд показал два практических ограничения. Первое -- часть detector'ов может зависеть от внешних метаданных; особенно заметно это на \texttt{packagehallucination}. Второе -- служебная AVID-конверсия в этой сборке Garak работала нестабильно, поэтому в промышленном процессе лучше опираться прежде всего на \texttt{report.jsonl} и \texttt{hitlog}, а экспорт в дополнительные форматы проверять отдельно. Для регулярной эксплуатации имеет смысл разделить проверки на три набора: быстрый smoke-check, основной security-set и расширенный regression-set. Иначе время и стоимость прогонов быстро вырастут, особенно на тяжелых семействах вроде \texttt{promptinject}.
+
+\textbf{Вывод.} По итогам стенда Garak подходит для внутреннего контроля разработки LLM-сервисов. Он уверенно ловит прикладные дефекты, нормально подключается к REST-эндпоинтам и допускает расширение под собственные сценарии. Основной вариант внедрения здесь -- не разовая проверка модели, а регулярный security-регресс для внутренних сервисов. Само внедрение лучше строить без лишней сложности: сохранить единый REST-контракт, зафиксировать минимальный набор probe families, отдельно валидировать offline-зависимости detector'ов и постепенно добавлять собственные probes под реальные сценарии компании.
+
+\vspace{0.3em}
+{\footnotesize\textit{Основание отчета: официальная пользовательская и reference-документация Garak; фактические результаты, ограничения и выводы по стенду -- из review-пакета и \texttt{FINAL\_SUMMARY.md} от 22.04.2026.}}
+
+\end{document}

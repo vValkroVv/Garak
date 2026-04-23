@@ -1,0 +1,151 @@
+Repository structure snapshot (excluding .git)
+
+.
+|-- .DS_Store
+|-- .gitignore
+|-- AGENTS.md
+|-- README.md
+|-- docs
+|   |-- instruction1-installation-trace.md
+|   `-- instruction2-testing-trace.md
+|-- instructions
+|   |-- .DS_Store
+|   |-- instruction1_installation_garak.md
+|   |-- instruction2_testing_3_services.md
+|   `-- instruction3_collect_results.md
+|-- repo_structure.txt
+|-- review
+|   |-- FINAL_SUMMARY.md
+|   |-- avid-conversion.log
+|   |-- configs
+|   |   |-- rest-generator-ansi-terminal-proxy.json
+|   |   |-- rest-generator-code-helper-bad-imports.json
+|   |   |-- rest-generator-rag-summarizer-naive.json
+|   |   `-- rest-generator.json
+|   |-- garak-detectors.txt
+|   |-- garak-generators.txt
+|   |-- garak-help.txt
+|   |-- garak-probes.txt
+|   |-- garak-version.txt
+|   |-- logs
+|   |   |-- 00-selftest.log
+|   |   |-- 00a-hitlog-check.log
+|   |   |-- 01-openai-smoke.log
+|   |   |-- ansi-terminal-proxy.log
+|   |   |-- ansi-terminal-proxy.pid
+|   |   |-- code-helper-bad-imports.log
+|   |   |-- code-helper-bad-imports.pid
+|   |   |-- openai-model-check.log
+|   |   |-- rag-summarizer-naive.log
+|   |   `-- rag-summarizer-naive.pid
+|   |-- pip-freeze.txt
+|   |-- python-version.txt
+|   |-- runs
+|   |   |-- 00-selftest
+|   |   |   |-- 00-selftest.console.log
+|   |   |   |-- 00-selftest.report.html
+|   |   |   `-- 00-selftest.report.jsonl
+|   |   |-- 00a-hitlog-check
+|   |   |   |-- 00a-hitlog-check.console.log
+|   |   |   |-- 00a-hitlog-check.hitlog.jsonl
+|   |   |   |-- 00a-hitlog-check.report.html
+|   |   |   `-- 00a-hitlog-check.report.jsonl
+|   |   |-- 01-openai-smoke
+|   |   |   |-- 01-openai-smoke.avid.jsonl
+|   |   |   |-- 01-openai-smoke.console.log
+|   |   |   |-- 01-openai-smoke.report.html
+|   |   |   `-- 01-openai-smoke.report.jsonl
+|   |   |-- 10-ansi-terminal-proxy
+|   |   |   |-- 10-ansi-terminal-proxy.console.log
+|   |   |   |-- 10-ansi-terminal-proxy.hitlog.jsonl
+|   |   |   |-- 10-ansi-terminal-proxy.report.html
+|   |   |   |-- 10-ansi-terminal-proxy.report.jsonl
+|   |   |   |-- manual-proof.json
+|   |   |   `-- run-summary.txt
+|   |   |-- 20-rag-promptinject
+|   |   |   |-- 20-rag-promptinject.console.log
+|   |   |   |-- 20-rag-promptinject.hitlog.jsonl
+|   |   |   |-- 20-rag-promptinject.report.html
+|   |   |   |-- 20-rag-promptinject.report.jsonl
+|   |   |   |-- manual-proof.json
+|   |   |   `-- run-summary.txt
+|   |   |-- 21-rag-latentinjection
+|   |   |   |-- 21-rag-latentinjection.console.log
+|   |   |   |-- 21-rag-latentinjection.hitlog.jsonl
+|   |   |   |-- 21-rag-latentinjection.report.html
+|   |   |   |-- 21-rag-latentinjection.report.jsonl
+|   |   |   |-- manual-proof.json
+|   |   |   `-- run-summary.txt
+|   |   |-- 21-rag-latentinjection-interrupted-2026-04-23
+|   |   |   |-- 21-rag-latentinjection.console.log
+|   |   |   |-- 21-rag-latentinjection.hitlog.jsonl
+|   |   |   |-- 21-rag-latentinjection.report.jsonl
+|   |   |   `-- manual-proof.json
+|   |   `-- 30-code-helper-bad-imports
+|   |       |-- 30-code-helper-bad-imports.console.log
+|   |       |-- 30-code-helper-bad-imports.hitlog.jsonl
+|   |       |-- 30-code-helper-bad-imports.report.html
+|   |       |-- 30-code-helper-bad-imports.report.jsonl
+|   |       |-- manual-proof.json
+|   |       `-- run-summary.txt
+|   |-- services
+|   |   |-- ansi-terminal-proxy
+|   |   |   |-- __pycache__
+|   |   |   |   `-- app.cpython-312.pyc
+|   |   |   `-- app.py
+|   |   |-- code-helper-bad-imports
+|   |   |   |-- __pycache__
+|   |   |   |   `-- app.cpython-312.pyc
+|   |   |   `-- app.py
+|   |   `-- rag-summarizer-naive
+|   |       |-- __pycache__
+|   |       |   `-- app.cpython-312.pyc
+|   |       `-- app.py
+|   `-- system.txt
+`-- runs
+    |-- 00-selftest
+    |   |-- 00-selftest.console.log
+    |   |-- 00-selftest.report.html
+    |   `-- 00-selftest.report.jsonl
+    |-- 00a-hitlog-check
+    |   |-- 00a-hitlog-check.console.log
+    |   |-- 00a-hitlog-check.hitlog.jsonl
+    |   |-- 00a-hitlog-check.report.html
+    |   `-- 00a-hitlog-check.report.jsonl
+    |-- 01-openai-smoke
+    |   |-- 01-openai-smoke.console.log
+    |   |-- 01-openai-smoke.report.html
+    |   `-- 01-openai-smoke.report.jsonl
+    |-- 10-ansi-terminal-proxy
+    |   |-- 10-ansi-terminal-proxy.console.log
+    |   |-- 10-ansi-terminal-proxy.hitlog.jsonl
+    |   |-- 10-ansi-terminal-proxy.report.html
+    |   |-- 10-ansi-terminal-proxy.report.jsonl
+    |   |-- manual-proof.json
+    |   `-- run-summary.txt
+    |-- 20-rag-promptinject
+    |   |-- 20-rag-promptinject.console.log
+    |   |-- 20-rag-promptinject.hitlog.jsonl
+    |   |-- 20-rag-promptinject.report.html
+    |   |-- 20-rag-promptinject.report.jsonl
+    |   |-- manual-proof.json
+    |   `-- run-summary.txt
+    |-- 21-rag-latentinjection
+    |   |-- 21-rag-latentinjection.console.log
+    |   |-- 21-rag-latentinjection.hitlog.jsonl
+    |   |-- 21-rag-latentinjection.report.html
+    |   |-- 21-rag-latentinjection.report.jsonl
+    |   |-- manual-proof.json
+    |   `-- run-summary.txt
+    |-- 21-rag-latentinjection-interrupted-2026-04-23
+    |   |-- 21-rag-latentinjection.console.log
+    |   |-- 21-rag-latentinjection.hitlog.jsonl
+    |   |-- 21-rag-latentinjection.report.jsonl
+    |   `-- manual-proof.json
+    `-- 30-code-helper-bad-imports
+        |-- 30-code-helper-bad-imports.console.log
+        |-- 30-code-helper-bad-imports.hitlog.jsonl
+        |-- 30-code-helper-bad-imports.report.html
+        |-- 30-code-helper-bad-imports.report.jsonl
+        |-- manual-proof.json
+        `-- run-summary.txt

@@ -1,0 +1,4 @@
+interface:
+  display_name: "LaTeX PDF Build"
+  short_description: "Build LaTeX PDFs in this report repo"
+  default_prompt: "Use $latex-pdf-build to compile a .tex file in this report workspace into a PDF."
